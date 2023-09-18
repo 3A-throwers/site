@@ -4,7 +4,7 @@ import markdownItKatex from '@vscode/markdown-it-katex';
 import useJsx from '@vitejs/plugin-vue-jsx';
 
 export default defineConfig({
-  title: 'Aya Prover',
+  title: '3A Throwers',
   description: '',
   head: [
     ['link', {
@@ -23,34 +23,21 @@ export default defineConfig({
   ],
   themeConfig: {
     logo: '/logo.svg',
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/aya-prover' },
-    ],
+    // socialLinks: [
+    //   { icon: 'github', link: 'https://github.com/3A-Throwers' },
+    // ],
     editLink: {
-      pattern: 'https://github.com/aya-prover/aya-prover-docs/tree/main/src/:path',
+      pattern: 'https://github.com/3A-Throwers/site/tree/main/src/:path',
       text: 'Suggest changes to this page',
     },
     nav: [
       { text: 'Guide', link: '/guide/' },
-      { text: 'Publications', link: '/pubs/' },
-      { text: 'Blog', link: '/blog/' },
+      // { text: 'Blog', link: '/blog/' },
     ],
     search: {
       provider: 'local',
     },
     sidebar: [
-      {
-        text: 'Blog',
-        items: [
-          { text: 'Inductive Props', link: '/blog/ind-prop' },
-          { text: 'Def. projection in classes', link: '/blog/class-defeq' },
-          { text: 'Path constructor elaboration', link: '/blog/pathcon-elab' },
-          { text: 'Path type elaboration', link: '/blog/path-elab' },
-          { text: 'Binary operators', link: '/blog/binops' },
-          { text: 'Index unification', link: '/blog/index-unification' },
-          { text: 'Language extensions?', link: '/blog/lang-exts' },
-        ]
-      },
       {
         text: 'Guide',
         items: [
