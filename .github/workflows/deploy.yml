@@ -27,7 +27,7 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
-        cp CNAME src/.vitepress/dist/
+        # cp CNAME src/.vitepress/dist/
         cd src/.vitepress/dist
         git init
         git config user.email "no-reply@github.com"
