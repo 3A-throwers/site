@@ -42,6 +42,7 @@ export default defineConfig({
         text: 'Guide',
         items: [
           { text: 'Get Started', link: '/guide/' },
+          { text: 'Online Tutorials', link: '/guide/tutorials' },
         ]
       },
     ]
