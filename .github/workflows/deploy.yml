@@ -1,0 +1,39 @@
+on:
+  push:
+    branches: [main, staging, trying]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        ref: 'main'
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.x
+    - name: Setup pnpm for sane package management
+      uses: pnpm/action-setup@v2.4.0
+    - name: Build
+      run: |
+        pnpm i
+        pnpm build
+    - name: Deploy to GitHub Pages
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: |
+        cp CNAME src/.vitepress/dist/
+        cd src/.vitepress/dist
+        git init
+        git config user.email "no-reply@github.com"
+        git config user.name "owo-bot"
+        git add *
+        git commit -m "GitHub Actions Automated Deploy"
+        git remote add origin "https://owo-bot:$GH_TOKEN@github.com/3A-Throwers/3A-Throwers.github.io.git"
+        git branch -M main
+        git push -f -u origin main
